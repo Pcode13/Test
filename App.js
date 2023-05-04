@@ -3,11 +3,7 @@ import AllNavigation from './src/Navigation/AllNavigation';
 
 
 
-const App = () =>{
-    return (
-        <Text>React Native App</Text>
-    )
-}
+const App = () =><AllNavigation/>
   
 
 export default App;
