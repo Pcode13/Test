@@ -1,13 +1,9 @@
 import React from 'react';
-import AllNavigation from './src/Navigation/AllNavigation';
+
+import RandomNumber from './src/RandomNumber';
 
 
-
-const App = () =>{
-    return (
-        <Text>React Native App</Text>
-    )
-}
+const App = () => <RandomNumber/>
   
 
 export default App;
