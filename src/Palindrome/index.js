@@ -8,23 +8,33 @@ import {
 import React, {useEffect, useState} from 'react';
 
 const Palindrome = () => {
-  const [word, setWord] = useState();
+  const [word, setWord] = useState('');
   const [btn, setBtn] = useState();
 
   const checkPalindrome = text => {
     let len = word.length;
 
+    let vowelCount = 0;
+    let wordval = word.toLowerCase();
+
     let startStr = word.substring(0, Math.floor(len / 2)).toLowerCase();
     let endStr = word.substring(len - Math.floor(len / 2));
-    console.log('s', startStr);
-    console.log('e', endStr);
 
     let flip = [...endStr].reverse().join('');
     if (flip == startStr) {
       setWord(`${word.toUpperCase()} is a Palindrome `);
     } else {
-      setWord(`${word}r is a not Palindrome `);
+      setWord(`${word.toUpperCase()} is a not Palindrome `);
     }
+
+    for (let i = 0; i < wordval.length; i++) {
+      let letter = wordval[i];
+      if (letter.match(/([a,e,i,o,u])/)) {
+        vowelCount++
+
+      }
+    }
+    setBtn(`${word.toUpperCase()} has ${vowelCount} Vowels `);
   };
 
   return (
@@ -47,6 +57,7 @@ const Palindrome = () => {
 
       <View style={styles.btn}>
         <Text style={styles.txt1}>{word}</Text>
+        <Text style={styles.txt1}>{btn}</Text>
       </View>
     </View>
   );
